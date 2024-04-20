@@ -22,17 +22,17 @@ interface Faq {
 const services: Service[] = [
   {
     name: "web development",
-    desc: "Lorem ipsum dolor sit amet consectetur.",
+    desc: "crafting responsive websites and powerful web applications for an exceptional online presence.",
     icon: "bi bi-hammer",
   },
   {
     name: "software consultancy",
-    desc: "Lorem ipsum dolor sit amet consectetur.",
+    desc: "strategic guidance through the software development lifecycle for efficient, scalable solutions.",
     icon: "bi bi-person-workspace",
   },
   {
     name: "app development",
-    desc: "Lorem ipsum dolor sit amet consectetur.",
+    desc: "developing intuitive, feature-rich mobile apps for iOS and Android platforms.",
     icon: "bi bi-phone",
   },
 ];
@@ -104,7 +104,7 @@ export default function Home() {
           <div>
             <h1 className="text-2xl font-bold mb-2">how can we help you?</h1>
             <p className="text-sm text-slate-600">
-              Lorem ipsum dolor sit amet consectetur.
+              we offer tailored solutions to meet your digital needs.
             </p>
           </div>
 
@@ -130,7 +130,8 @@ export default function Home() {
             see our clients idea come to life.
           </h1>
           <p className="text-sm text-slate-600">
-            Lorem ipsum dolor sit amet consectetur.
+            we bring your vision to reality through innovative digital
+            solutions.
           </p>
         </div>
 
@@ -159,7 +160,7 @@ export default function Home() {
               <div className="mb-6">
                 <h1 className="text-2xl font-bold mb-2">faq</h1>
                 <p className="text-sm text-slate-600">
-                  Lorem ipsum dolor sit amet consectetur.
+                  get answers to some of our common queries.
                 </p>
               </div>
               <div>
@@ -180,7 +181,7 @@ export default function Home() {
               <div className="mb-6">
                 <h1 className="text-2xl font-bold mb-2">get in touch?</h1>
                 <p className="text-sm text-slate-600">
-                  Lorem ipsum dolor sit amet consectetur.
+                  ready to discuss your project? Let's bring your ideas to life.
                 </p>
               </div>
               <div>
