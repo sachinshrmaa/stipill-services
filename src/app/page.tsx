@@ -181,7 +181,7 @@ export default function Home() {
               <div className="mb-6">
                 <h1 className="text-2xl font-bold mb-2">get in touch?</h1>
                 <p className="text-sm text-slate-600">
-                  ready to discuss your project? Let's bring your ideas to life.
+                  ready to discuss your project? Let&apos;s bring your ideas to life.
                 </p>
               </div>
               <div>
