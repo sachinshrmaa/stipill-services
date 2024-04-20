@@ -14,7 +14,7 @@ export default function Accordian({ title, content }: any) {
         className="flex justify-between items-center py-2 cursor-pointer"
         onClick={toggleAccordion}
       >
-        <div className="text-slate-600 px-2 text-sm md:text-md">{title}</div>
+        <div className="text-slate-600 text-sm md:text-md">{title}</div>
         <div
           className={`transform text-purple-700 ${
             isOpen ? "rotate-180" : "rotate-90"
