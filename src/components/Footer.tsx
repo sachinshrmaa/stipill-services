@@ -1,31 +1,20 @@
-import Link from "next/link";
-import React from "react";
-
-const menuItems = [
-  { title: "terms", link: "#services" },
-  { title: "privacy", link: "#about" },
-];
+import { contact } from "@/content";
 
 export default function Footer() {
   return (
-    <div className="text-center py-8">
-      <nav className="mb-3">
-        {menuItems.map((menu, index) => (
-          <Link
-            key={index}
-            href={menu.link}
-            className="mx-4 text-sm hover:text-purple-700"
-          >
-            {menu.title}
-          </Link>
-        ))}
-      </nav>
-      <p className="text-sm text-slate-500">
-        a design and development agency based in Sikkim, India.
-      </p>
-      <p className="text-sm text-slate-500">
-        © 2024 stipill solutions and services
-      </p>
-    </div>
+    <footer className="border-t border-zinc-100">
+      <div className="container-x flex flex-col gap-4 py-10 text-sm text-zinc-500 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p className="font-medium text-zinc-900">Stipill Solutions and Services</p>
+          <p>Software, web & growth studio · Sikkim, India · Est. 2023</p>
+        </div>
+        <div className="flex flex-col gap-1 md:items-end">
+          <a href={`mailto:${contact.email}`} className="hover:text-zinc-900">
+            {contact.email}
+          </a>
+          <p>© 2023–{new Date().getFullYear()} Stipill. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
   );
 }

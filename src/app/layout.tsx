@@ -1,21 +1,19 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "@/app/globals.css";
 
-import { Poppins } from "next/font/google";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
-export const metadata = {
-  title: "Stipill",
-  description: "a design and development agency",
+export const metadata: Metadata = {
+  title: "Stipill Solutions and Services — Web, App, SEO & Motion Studio",
+  description:
+    "Stipill designs, builds and grows digital products: technical consultancy, custom web and mobile development, SEO & AI search optimization, and animated brand videos.",
 };
 
-const poppins = Poppins({
-  weight: "400",
-  style: "normal",
-  subsets: [],
-});
+const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export default function RootLayout({
   children,
@@ -24,9 +22,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
+      <body className={inter.className}>
         <Navbar />
-        {children}
+        <main>{children}</main>
         <Footer />
       </body>
     </html>
