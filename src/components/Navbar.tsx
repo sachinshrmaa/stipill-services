@@ -5,10 +5,11 @@ import { useState } from "react";
 import { contact } from "@/content";
 
 const menuItems = [
-  { title: "Services", link: "#services" },
-  { title: "Work", link: "#work" },
-  { title: "Pricing", link: "#pricing" },
-  { title: "FAQ", link: "#faq" },
+  { title: "Services", link: "/#services" },
+  { title: "Work", link: "/#work" },
+  { title: "Case Studies", link: "/case-studies" },
+  { title: "Pricing", link: "/#pricing" },
+  { title: "FAQ", link: "/#faq" },
 ];
 
 export default function Navbar() {

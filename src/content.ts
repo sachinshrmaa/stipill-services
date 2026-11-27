@@ -78,6 +78,21 @@ export const projects: Project[] = [
   },
 ];
 
+export type Brand = {
+  name: string;
+  /** Path to a logo in /public, e.g. "/logos/balkapso.svg". Falls back to a wordmark if missing. */
+  logo?: string;
+  url?: string;
+};
+
+export const trustedBy: Brand[] = [
+  { name: "BALKAPSO Constructions", url: "https://balkapso.com" },
+  { name: "LASS School", url: "https://lasss.edu.in" },
+  { name: "Wicklog", url: "https://wicklog.in" },
+  { name: "Replog", url: "https://replog.sachinbuilds.in" },
+  { name: "The Basics Cohort", url: "https://tbc.sachinbuilds.in" },
+];
+
 export type Plan = {
   name: string;
   price: string;
@@ -106,6 +121,12 @@ export const plans: Plan[] = [
     price: "₹15,000",
     desc: "Full-featured websites and web apps with content management and custom functionality.",
     features: ["Multiple pages & CMS", "Custom features & integrations", "Performance & security tuned"],
+  },
+  {
+    name: "App Development",
+    price: "₹25,000",
+    desc: "Cross-platform iOS & Android apps, from MVP to launch.",
+    features: ["iOS & Android from one codebase", "Backend, auth & API integration", "Play Store & App Store launch"],
   },
   {
     name: "SEO & AI Search Optimization",

@@ -1,6 +1,8 @@
 import Link from "next/link";
 
-import { contact, faq, plans, projects, services, type Plan } from "@/content";
+import CaseStudyCard from "@/components/CaseStudyCard";
+import { contact, faq, plans, projects, services, trustedBy, type Brand, type Plan } from "@/content";
+import { getCaseStudies } from "@/lib/case-studies";
 
 function SectionHeader({
   eyebrow,
@@ -26,6 +28,35 @@ function Check({ children }: { children: React.ReactNode }) {
       <i className="bi bi-check2 mt-0.5 text-indigo-600" aria-hidden />
       <span>{children}</span>
     </li>
+  );
+}
+
+function BrandLogo({ brand }: { brand: Brand }) {
+  const inner = brand.logo ? (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={brand.logo}
+      alt={brand.name}
+      className="h-8 w-auto max-w-[140px] object-contain opacity-60 grayscale transition group-hover:opacity-100 group-hover:grayscale-0"
+    />
+  ) : (
+    <span className="text-base font-semibold tracking-tight text-zinc-400 transition group-hover:text-zinc-900">
+      {brand.name}
+    </span>
+  );
+
+  return brand.url ? (
+    <a
+      href={brand.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      title={brand.name}
+      className="group flex h-12 items-center"
+    >
+      {inner}
+    </a>
+  ) : (
+    <span className="group flex h-12 items-center">{inner}</span>
   );
 }
 
@@ -87,6 +118,7 @@ function TieredPlanCard({ plan }: { plan: Plan }) {
 export default function Home() {
   const simplePlans = plans.filter((p) => !p.tiers);
   const tieredPlans = plans.filter((p) => p.tiers);
+  const caseStudies = getCaseStudies().slice(0, 2);
 
   return (
     <>
@@ -107,7 +139,7 @@ export default function Home() {
               <span className="text-zinc-400">digital products.</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg text-zinc-600">
-              Since 2023, Stipill has been a software and growth studio. From technical strategy to
+              Since 2023, Stipill has been a software and growth agency. From technical strategy to
               websites, apps, search visibility and motion — one team, end to end.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-3">
@@ -122,11 +154,11 @@ export default function Home() {
 
           <div className="mt-20 border-t border-zinc-100 pt-8">
             <p className="text-xs uppercase tracking-[0.14em] text-zinc-400">
-              Built for & by
+              Trusted by
             </p>
-            <div className="mt-4 flex flex-wrap gap-x-10 gap-y-3 text-sm font-medium text-zinc-500">
-              {projects.map((p) => (
-                <span key={p.client}>{p.client}</span>
+            <div className="mt-5 flex flex-wrap items-center gap-x-12 gap-y-4">
+              {trustedBy.map((b) => (
+                <BrandLogo key={b.name} brand={b} />
               ))}
             </div>
           </div>
@@ -209,6 +241,29 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Case studies */}
+      {caseStudies.length > 0 && (
+        <section id="case-studies" className="border-t border-zinc-100 py-24">
+          <div className="container-x">
+            <div className="flex flex-wrap items-end justify-between gap-6">
+              <SectionHeader
+                eyebrow="Case studies"
+                title="How we've helped."
+                desc="A closer look at the problems we solved and the results that followed."
+              />
+              <Link href="/case-studies" className="btn-secondary">
+                All case studies <i className="bi bi-arrow-right" aria-hidden />
+              </Link>
+            </div>
+            <div className="mt-14 grid gap-6 md:grid-cols-2">
+              {caseStudies.map((s) => (
+                <CaseStudyCard key={s.slug} study={s} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Pricing */}
       <section id="pricing" className="border-t border-zinc-100 bg-zinc-50/60 py-24">
         <div className="container-x">
@@ -217,7 +272,7 @@ export default function Home() {
             title="Transparent, honest pricing."
             desc="Clear starting prices so you can plan. After a short call, every project gets a fixed quote based on its scope."
           />
-          <div className="mt-14 grid gap-4 md:grid-cols-3">
+          <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {simplePlans.map((p) => (
               <PlanCard key={p.name} plan={p} />
             ))}

@@ -8,9 +8,9 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
-  title: "Stipill Solutions and Services — Web, App, SEO & Motion Studio",
+  title: "Stipill Solutions and Services — Web, App, SEO & Motion Agency",
   description:
-    "Stipill designs, builds and grows digital products: technical consultancy, custom web and mobile development, SEO & AI search optimization, and animated brand videos.",
+    "Stipill is a digital agency that designs, builds and grows digital products: technical consultancy, custom web and mobile development, SEO & AI search optimization, and animated brand videos.",
 };
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
