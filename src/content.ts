@@ -45,9 +45,15 @@ export type Project = {
 export const projects: Project[] = [
   {
     client: "BALKAPSO Constructions",
-    work: ["Official website", "Blu app"],
+    work: ["Official website"],
     url: "https://balkapso.com",
     domain: "balkapso.com",
+  },
+  {
+    client: "blu by BALKAPSO",
+    work: ["App connecting Sikkim homeowners with engineering & construction services"],
+    url: "https://blu.balkapso.com",
+    domain: "blu.balkapso.com",
   },
   {
     client: "LASS School",
